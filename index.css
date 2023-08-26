@@ -5,7 +5,7 @@ body {
 #container {
   position: relative;
   top: 30px;
-  outline: 2px solid white;
+  outline: 2px solid black;
   font-size: 0;
   margin: auto;
   height: 400px;
@@ -18,6 +18,19 @@ body {
   margin: 0;
   padding: 0;
   border: none;
-  outline: 1px solid white;
+  outline: 1px solid black;
   display: inline-block;
+}
+
+.typeempty {
+  background-color: white;
+}
+
+.typefilled {
+  background-color: black;
+}
+
+.typepossible {
+  background-color: darkblue;
+  cursor: pointer;
 }

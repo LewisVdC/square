@@ -1,8 +1,56 @@
+var state = [];
+for (var gridNumber = 0; gridNumber < 100; gridNumber++) {
+  state[gridNumber] = "empty";
+}
+
+state[0] = "possible";
+
+var setPossible = (x, y) => {
+  if (0 <= x && x <= 9 && 0 <= y && y <= 9 && state[x * 10 + y] === "empty") {
+    state[x * 10 + y] = "possible";
+  }
+};
+
+var handleClick = (gridNumber) => {
+  if (state[gridNumber] === "possible") {
+    // fill the cell
+    state[gridNumber] = "filled";
+    // remove all previous possibles
+    for (var x = 0; x < 100; x++) {
+      if (state[x] === "possible") {
+        state[x] = "empty";
+      }
+    }
+
+    // set new possibles
+    var x = Math.floor(gridNumber / 10);
+    var y = gridNumber % 10;
+    // console.log(x, y);
+    setPossible(x + 3, y);
+    setPossible(x + 2, y + 2);
+    setPossible(x, y + 3);
+    setPossible(x - 2, y + 2);
+    setPossible(x - 3, y);
+    setPossible(x - 2, y - 2);
+    setPossible(x, y - 3);
+    setPossible(x + 2, y - 2);
+  }
+  createGrid(10);
+};
+
 // function that builds a grid in the "container"
 function createGrid(x) {
+  clearGrid();
   for (var rows = 0; rows < x; rows++) {
     for (var columns = 0; columns < x; columns++) {
-      $("#container").append("<div class='grid" + "" + "'></div>");
+      var gridNumber = columns + rows * x;
+      $("#container").append(
+        "<div class='grid type" +
+          state[gridNumber] +
+          "' onclick='handleClick(" +
+          gridNumber +
+          ")'></div>"
+      );
     }
   }
   $(".grid").width(400 / x);
@@ -30,8 +78,3 @@ $(document).ready(function () {
     refreshGrid();
   });
 });
-
-var state = [];
-state[0] = -1; //filled
-state[1] = 0; //empty
-state[2] = 1; //player or possible location
