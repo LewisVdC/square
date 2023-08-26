@@ -22,15 +22,18 @@ body {
   display: inline-block;
 }
 
-.typeempty {
+.empty {
+  transition: 0.5s;
   background-color: white;
 }
 
-.typefilled {
+.filled {
+  transition: 1s;
   background-color: black;
 }
 
-.typepossible {
+.possible {
+  transition: 1s;
   background-color: darkblue;
   cursor: pointer;
 }
