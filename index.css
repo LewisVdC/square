@@ -1,15 +1,16 @@
 body {
   background-color: black;
+  background-image: linear-gradient(blue, aqua);
 }
 
 #container {
   position: relative;
-  top: 30px;
+  top: -150px;
   outline: 2px solid black;
   font-size: 0;
   margin: auto;
-  height: 400px;
-  width: 400px;
+  height: 800px;
+  width: 800px;
   padding: 0;
   border: none;
 }
@@ -29,11 +30,11 @@ body {
 
 .filled {
   transition: 1s;
-  background-color: black;
+  opacity: 0%;
 }
 
 .possible {
   transition: 1s;
-  background-color: darkblue;
+  background-color: black;
   cursor: pointer;
 }

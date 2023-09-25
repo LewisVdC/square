@@ -58,8 +58,8 @@ function createGrid(x) {
       );
     }
   }
-  $(".grid").width(400 / x);
-  $(".grid").height(400 / x);
+  $(".grid").width(800 / x);
+  $(".grid").height(800 / x);
 }
 
 // function that clears the grid
