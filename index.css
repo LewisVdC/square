@@ -1,6 +1,7 @@
 body {
   background-color: black;
   background-image: linear-gradient(blue, aqua);
+  overflow: hidden;
 }
 
 #container {
